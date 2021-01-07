@@ -1,0 +1,33 @@
+<div class="card">
+	<div class ="d-flex justify-content-between card-header">
+		<h4>Danh sách lĩnh vực</h4>
+		<a href='/admin/categories/add' class="btn btn-outline-success fa fa-plus font-weight-bold" role="button"> Thêm lĩnh vực</a>
+	</div>
+	<div class = "card-body">
+		{{#if this.empty}}
+		<h5 class="card-title">Không có dữ liệu!</h5>
+    	<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+		{{else}}
+		<table class="table table-hover">
+		<thead>
+			<tr>
+			<th scope="col">ID</th>
+			<th scope="col">Tên</th>
+			<th scope="col">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each this.categories}}			
+			<tr>
+			<th scope="row">{{catID}}</th>
+			<td>{{catName}}</td>
+			<td class="text-right">
+				<a href='/admin/categories/edit?id={{catID}}' class="btn btn-outline-info" role="button">Sửa</a>
+			</td>
+			</tr>
+			{{/each}}
+		</tbody>
+		</table>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<form method="POST">
+    <div class="card">
+        <div class ="d-flex justify-content-between card-header">
+            <h4>Lĩnh vực</h4>
+        </div>
+        <div class = "card-body">
+            <div class="form-group">
+                <label for="txtCatID" class="font-weight-bold">ID:</label>
+                <input type="text" class="form-control" id="txtCatName" name="catID" readonly value="{{this.category.catID}}">
+            </div>
+            <div class="form-group">
+                <label for="txtCatName" class="font-weight-bold">Tên lĩnh vực:</label>
+                <input type="text" class="form-control" id="txtCatName" name="catName" autofocus value="{{this.category.catName}}">
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            <a class="btn btn-outline-danger mr-2" href="/admin/categories" role="button">
+            <i class="fa fa-arrow-circle-left"></i> 
+                Quay lại
+            </a>
+            <button class="btn btn-outline-info" type="submit" formaction="/admin/categories/delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Xóa
+            </button>
+            <button class="btn btn-outline-info" type="submit" formaction="/admin/categories/update">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                Lưu
+            </button>
+        </div>
+    </div>
+</form>

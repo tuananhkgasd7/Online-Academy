@@ -1,0 +1,31 @@
+<div class=" row">
+    <div class="col-3">
+        <div class="card-header">
+            <h5 class="font-weight-bold">Danh sách lĩnh vực</h5>
+        </div>
+        <div class="card-body">
+            {{#each lcCategories}}
+            <a href="/products/byCat/{{catID}}" role="button" class="nav-link pt-2 pb-2 text-dark">
+            {{#if IsActive}}<i class="fa fa-caret-right" aria-hidden="true"></i>{{/if}}
+            <span class="ml-1">{{catName}}</span>
+            <span class="badge badge-pill badge-danger float-right">{{courseCount}}</span>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+    <div class="col-9 row">
+        {{#if this.empty}}
+        <h5 class="card-title">Không có dữ liệu!</h5>
+    	<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        {{else}}
+        {{#each this.products}}
+        <div class="card col-3 pt-3">
+            <img src="/Front-end/img/{{courseID}}.jpg" alt="{{courseName}}" title="{{courseName}}" class="w-100">
+            <a class=" mt-1 text-dark font-weight-bold" href="/products/detail/{{courseID}}">{{courseName}}</a>
+            <p class="mt-1 teacher">{{teacherName}}</p>  
+            <p class="price font-weight-bold">{{format_number coursePrice}}đ</p>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>

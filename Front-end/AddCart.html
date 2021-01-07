@@ -1,0 +1,112 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/menu-lg.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Add Cart</title>
+<!-- InstanceEndEditable -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="css/mainstyle.css" rel="stylesheet" type="text/css">
+<script src="js/bootstrap-4.3.1.js"></script>
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light flex-lg-nowrap">
+  <a class="navbar-brand" href="TrangChu.html"><img src="img/logo2.png" style="width: 70px; height: auto"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto menu">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle font-weight-bold text-blue-light" href="Product.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li class="dropdown-submenu">
+			  <a class="dropdown-item" href="#">Lập trình web</a>
+			</li>
+		  <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Lập trình thiết bị di động</a>
+        </ul>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0 w-50">
+      <input class="form-control mr-sm-2 w-50" type="search" placeholder="Tìm khóa học, giảng viên" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+	 <ul class="navbar-nav menu">
+    		  	<li class="nav-item dropdown">
+       			  <a class="nav-link dropdown-toggle text-blue-light mr-2" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-2x"></i> Tài khoản</a>
+				  <ul class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+					  <li class="dropdown-submenu">
+						  <a class="dropdown-item" href="#">Thông tin</a>
+						</li>
+					  <div class="dropdown-divider"></div>
+					  <a class="dropdown-item" href="#">Đăng xuất  <i class="fa fa-sign-out"></i></a>
+					</ul>
+      			</li>
+      </ul>
+	<a href="Notify.html" role="button" class="nav-link text-blue-light position-relative mr-2"><i class=" fa fa-bell fa-2x"></i> Thông báo<p class="position-absolute tl-num">0</p></a>
+	<a href="Cart.html" role="button" class="nav-link text-blue-light position-relative mr-2"><i class="fa fa-shopping-cart fa-2x"></i><p class="position-absolute tl-num">0</p> Giỏ hàng</a>
+  </div>
+</nav>
+</header>
+<!-- InstanceBeginEditable name="main" --><main>
+		<div class="container">
+			<div class="card">
+				<div class ="d-flex justify-content-between card-header">
+					<h4>Categories</h4>
+					<a href='/category/add' class="btn btn-outline-success fa fa-plus font-weight-bold" role="button"> Thêm khóa học</a>
+				</div>
+				<div class = "card-body">
+					<table class="table table-hover">
+					<thead>
+						<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Tên</th>
+						<th scope="col">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>			
+						<tr>
+						<th scope="row">#id</th>
+						<td>#catName</td>
+						<td class="text-right">
+							<a href='/category/edit?id={{catID}}' class="btn btn-outline-info" role="button">Sửa</a>
+						</td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main><!-- InstanceEndEditable -->
+<footer class="bg-light">
+	<div class="row footer pb-4 pt-4">
+		<div class="col-3 pl-5">
+			<p class="font-weight-bold">Trụ sở chính</p>
+			<div class="dropdown-divider"></div>
+			<p><span class="fa fa-map-marker"></span> 227 Nguyễn Văn Cừ, Quận 5, Tp HCM</p>
+		</div>
+		<div class="col-3 pl-5">
+			<p class="font-weight-bold">Cơ sở 2</p>
+			<div class="dropdown-divider"></div>
+			<p><span class="fa fa-map-marker"></span> 137E Nguyễn Chí Thanh, P9, Q.5, Tp HCM</p>
+		</div>
+		<div class="col-3 pl-5">
+			<p class="font-weight-bold">Chính sách và quy định chung</p>
+			<div class="dropdown-divider"></div>
+			<p><span class="fa fa-check"></span> Điều khoản và dịch vụ</p>
+			<p><span class="fa fa-check"></span> Chính sách bảo mật</p>
+		</div>
+		<div class="col-3 pl-5">
+			<span class="fa fa-facebook-square fa-2x mr-2"></span>
+			<span class="fa fa-twitter-square fa-2x mr-2"></span>
+			<span class="fa fa-instagram fa-2x"></span>
+			<p class="font-weight-bold">Liên kết với chúng tôi</p>
+		</div>
+	</div>
+</footer>
+</body>
+<!-- InstanceEnd --></html>

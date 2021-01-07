@@ -1,0 +1,27 @@
+<div class=" row">
+    <div class="col-3">
+        <div class="card-header">
+            <h5 class="font-weight-bold">Danh sách lĩnh vực</h5>
+        </div>
+        <div class="card-body">
+            <a href="#" role="button" class="nav-link pt-2 pb-2 text-dark">Lập trình di động</a>
+            <a href="#" role="button" class="nav-link pt-2 pb-2 text-dark">Lập trình web</a>
+        </div>
+    </div>
+    <div class="col-9 row">
+        {{#if this.empty}}
+        <h5 class="card-title">Không có dữ liệu!</h5>
+    	<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        {{else}}
+        {{#each this.products}}
+        <div class="card col-3 pt-3">
+            <img src="/Front-end/img/{{courseID}}.jpg" class="w-100">
+            <a class=" mt-1 text-dark font-weight-bold" href="{{courseID}}">{{courseName}}</a>
+            <p class="mt-1 teacher">{{@root.teacherID.teacherName}}</p>  
+            <p class="teacher font-weight-bold">{{catID}}</p>
+            <p class="price font-weight-bold">{{coursePrice}}đ</p>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>
