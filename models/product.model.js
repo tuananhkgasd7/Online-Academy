@@ -1,4 +1,5 @@
 const db = require('../utils/db');
+const { paginate } = require('./../config/default.json');
 
 module.exports = {
     async all() {
@@ -11,6 +12,18 @@ module.exports = {
         const sql = "select c.*, t.teacherName from course c join teacher t where c.teacherID = t.teacherID and c.catID = " + idCat;
         const [rows, fields] = await db.load(sql);
         return rows;
+    },
+
+    async pageByCat(idCat, offset) {
+        const sql = `select * from course where catID=${idCat} limit ${paginate.limit} offset ${offset}`;
+        const [rows, fields] = await db.load(sql);
+        return rows;
+    },
+
+    async countByCat(idCat) {
+        const sql = `select count(*) as total from course where catID=${idCat}`;
+        const [rows, fields] = await db.load(sql);
+        return rows[0].total;
     },
 
     async single(idCourse) {
