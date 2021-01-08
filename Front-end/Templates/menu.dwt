@@ -5,16 +5,16 @@
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>Untitled Document</title>
 <!-- TemplateEndEditable -->
-<script src="../Front-end/js/jquery-3.3.1.min.js"></script>
-<link href="../Front-end/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="../Front-end/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="../Front-end/css/mainstyle.css" rel="stylesheet" type="text/css">
-<script src="../Front-end/js/bootstrap-4.3.1.js"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../css/mainstyle.css" rel="stylesheet" type="text/css">
+<script src="../js/bootstrap-4.3.1.js"></script>
 </head>
 <body>
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light flex-lg-nowrap">
-  <a class="navbar-brand" href="#"><img src="../Front-end/img/logo2.png" style="width: 70px; height: auto"></a>
+  <a class="navbar-brand" href="#"><img src="../img/logo2.png" style="width: 70px; height: auto"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -35,9 +35,9 @@
       <input class="form-control mr-sm-2 w-50" type="search" placeholder="Tìm khóa học, giảng viên" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
     </form>
-	<a class="form-inline my-2 my-lg-0 ml-5 btn btn-outline-success" href="../Front-end/Templates/Resigter.html" role="button">Đăng kí</a>
+	<a class="form-inline my-2 my-lg-0 ml-5 btn btn-outline-success" href="Resigter.html" role="button">Đăng kí</a>
 	 
-	<a class="form-inline my-2 my-lg-0 ml-3 mr-5 btn btn-primary" href="../Front-end/Templates/Login.html">Đăng nhập</a>
+	<a class="form-inline my-2 my-lg-0 ml-3 mr-5 btn btn-primary" href="Login.html">Đăng nhập</a>
   </div>
 </nav>
 </header>
