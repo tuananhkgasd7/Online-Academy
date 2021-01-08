@@ -3,6 +3,9 @@ main{
 	font-family: 'Roboto', sans-serif;
 	background-color: #f1f1f1}
 .h-350px{height: 325px}
+.h-400px{height: 450px}
+.h-310px{height: 330px!important}
+.h-360px{height: 360px}
 .login{
 	background-image: url("../img/bg-1.jpg");
 	background-repeat: no-repeat;
@@ -96,10 +99,6 @@ font-size: 14px;}
 }
 .price-sm{color: red;
 	right: 10%; font-size: 14px}
-.course-view{
-	height: 300px!important;
-	width: auto;
-}
 .title-dkm{
 	text-shadow: 2px 0 0 #4ca3dd, -2px 0 0 #4ca3dd, 0 2px 0 #4ca3dd, 0 -2px 0 #4ca3dd, 1px 1px #4ca3dd, -1px -1px 0 #4ca3dd, 1px -1px 0 #4ca3dd, -1px 1px 0 #4ca3dd; color: white; font-weight: 700; font-size: 26px; background: #E9E9E9; padding: 0!important; margin: 0!important;
 }.btn-add-info{
