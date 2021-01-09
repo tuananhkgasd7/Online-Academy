@@ -1,5 +1,6 @@
 const numeral = require('numeral');
 const exphbs = require('express-handlebars');
+const hbs_section = require('express-handlebars-sections');
 
 module.exports = function (app) {
     app.engine('hbs', exphbs({
