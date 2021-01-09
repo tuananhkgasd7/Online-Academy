@@ -1,5 +1,5 @@
 <!doctype html>
-<html><!-- InstanceBegin template="/Templates/menu.dwt" codeOutsideHTMLIsLocked="false" -->
+<html><!-- InstanceBegin template="/Templates/menu-lg.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -14,30 +14,41 @@
 <body>
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light flex-lg-nowrap">
-  <a class="navbar-brand" href="#"><img src="img/logo2.png" style="width: 70px; height: auto"></a>
+  <a class="navbar-brand" href="TrangChu.html"><img src="img/logo2.png" style="width: 70px; height: auto"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto menu">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+        <a class="nav-link dropdown-toggle font-weight-bold text-blue-light" href="Front-end/Product.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lĩnh vực</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li class="dropdown-submenu">
-			  <a class="dropdown-item" href="#">Lập trình web</a>
+			  <a class="dropdown-item" href="Product.html">Lập trình web</a>
 			</li>
 		  <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Lập trình thiết bị di động</a>
+          <a class="dropdown-item" href="Product.html">Lập trình thiết bị di động</a>
         </ul>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0 w-70">
+    <form class="form-inline my-2 my-lg-0 w-50">
       <input class="form-control mr-sm-2 w-50" type="search" placeholder="Tìm khóa học, giảng viên" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
     </form>
-	<a class="form-inline my-2 my-lg-0 ml-5 btn btn-outline-success" href="Resigter.html" role="button">Đăng kí</a>
-	 
-	<a class="form-inline my-2 my-lg-0 ml-3 mr-5 btn btn-primary" href="Login.html">Đăng nhập</a>
+	 <ul class="navbar-nav menu">
+    		  	<li class="nav-item dropdown">
+       			  <a class="nav-link dropdown-toggle text-blue-light mr-2" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-2x"></i> Tài khoản</a>
+				  <ul class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+					  <li class="dropdown-submenu">
+						  <a class="dropdown-item" href="Profile-UpdateInfor.html">Thông tin</a>
+						</li>
+					  <div class="dropdown-divider"></div>
+					  <a class="dropdown-item" href="Login.html">Đăng xuất  <i class="fa fa-sign-out"></i></a>
+					</ul>
+      			</li>
+      </ul>
+	<a href="#" role="button" class="nav-link text-blue-light position-relative mr-2"><i class=" fa fa-bell fa-2x"></i> Thông báo<p class="position-absolute tl-num">0</p></a>
+	<a href="CoursesCart.html" role="button" class="nav-link text-blue-light position-relative mr-2"><i class="fa fa-shopping-cart fa-2x"></i><p class="position-absolute tl-num">0</p> Giỏ hàng</a>
   </div>
 </nav>
 </header>
@@ -53,7 +64,7 @@
 					<div class="container col-3 carousel-item active h-400px">
 						<div class=" card pt-3 pl-3 pr-3 choose h-100">
 							<img src="img/mob-1.jpg" class="w-100" alt="img1">
-							<a class=" mt-1 text-dark font-weight-bold" href="mob-1">Lập trình Android từ cơ bản đến thành thạo</a>
+							<a class=" mt-1 text-dark font-weight-bold" href="ViewCourse.html">Lập trình Android từ cơ bản đến thành thạo</a>
 							<p class="mt-1 teacher">Vũ Quốc Tuấn</p>  
 							<p class="teacher font-weight-bold">Lập trình di động</p>
 							<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
@@ -63,7 +74,7 @@
 					<div class="container col-3 carousel-item h-400px">
 						<div class=" card pt-3 pl-3 pr-3 choose h-100">
 						<img src="img/mob-2.jpg" class="w-100" alt="img2">
-						<a class="mt-1 text-dark font-weight-bold" href="mob-2">Lập trình iOS với SwiftUI</a>
+						<a class="mt-1 text-dark font-weight-bold" href="ViewCourse.html">Lập trình iOS với SwiftUI</a>
 						<p class="mt-1 teacher">Nhóm giảng viên Lập Trình 0 Khó</p>
 						<p class="teacher font-weight-bold">Lập trình di động</p>
 						<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
@@ -73,7 +84,7 @@
 					<div class="container col-3 carousel-item h-400px">
 						<div class=" card pt-3 pl-3 pr-3 choose h-100">
 						<img src="img/mob-3.jpg" class="w-100" alt="img3">
-						<a class="mt-1 text-dark font-weight-bold" href="mob-3">Lập trình Android toàn tập</a>
+						<a class="mt-1 text-dark font-weight-bold" href="ViewCourse.html">Lập trình Android toàn tập</a>
 						<p class="mt-1 teacher">Trần Duy Thanh</p>
 						<p class="teacher font-weight-bold">Lập trình di động</p>
 						<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
@@ -83,7 +94,7 @@
 					<div class="container col-3 carousel-item h-400px">
 						<div class=" card pt-3 pl-3 pr-3 choose h-100">
 						<img src="img/mob-4.jpg" class="w-100" alt="img4">
-						<a class="mt-1 text-dark font-weight-bold" href="mob-4">Lập trình Android nâng cao</a>
+						<a class="mt-1 text-dark font-weight-bold" href="ViewCourse.html">Lập trình Android nâng cao</a>
 						<p class="mt-1 teacher">Trần Duy Thanh</p>
 						<p class="teacher font-weight-bold">Lập trình di động</p>
 						<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
@@ -93,7 +104,7 @@
 					<div class="container col-3 carousel-item h-400px">
 						<div class=" card pt-3 pl-3 pr-3 choose h-100">
 						<img src="img/mob-5.jpg" class="w-100" alt="img5">
-						<a class="mt-1 text-dark font-weight-bold" href="mob-5">Lập trình Android cơ bản</a>
+						<a class="mt-1 text-dark font-weight-bold" href="ViewCourse.html">Lập trình Android cơ bản</a>
 						<p class="mt-1 teacher">Trần Duy Thanh</p>
 						<p class="teacher font-weight-bold">Lập trình di động</p>
 						<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
@@ -103,7 +114,7 @@
 					<div class="container col-3 carousel-item h-400px">
 						<div class=" card pt-3 pl-3 pr-3 choose h-100">
 						<img src="img/mob-6.jpg" class="w-100" alt="img6">
-						<a class="mt-1 text-dark font-weight-bold" href="mob-6">Khóa học lập trình ứng dụng di động App Inventor</a>
+						<a class="mt-1 text-dark font-weight-bold" href="ViewCourse.html">Khóa học lập trình ứng dụng di động App Inventor</a>
 						<p class="mt-1 teacher">Học viện VIETSTEM</p>
 						<p class="teacher font-weight-bold">Lập trình di động</p>
 						<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
@@ -113,7 +124,7 @@
 					<div class="container col-3 carousel-item h-400px">
 						<div class=" card pt-3 pl-3 pr-3 choose h-100">
 						<img src="img/mob-7.jpg" class="w-100" alt="img7">
-						<a class="mt-1 text-dark font-weight-bold" href="mob-7">Thành thạo ngôn ngữ lập trình Swift bằng các ứng dụng thực tế</a>
+						<a class="mt-1 text-dark font-weight-bold" href="ViewCourse.html">Thành thạo ngôn ngữ lập trình Swift bằng các ứng dụng thực tế</a>
 						<p class="mt-1 teacher">Nguyễn Xuân Thành</p>
 						<p class="teacher font-weight-bold">Lập trình di động</p>
 						<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
@@ -123,7 +134,7 @@
 					<div class="container col-3 carousel-item h-400px">
 						<div class=" card pt-3 pl-3 pr-3 choose h-100">
 						<img src="img/mob-8.jpg" class="w-100" alt="img8">
-						<a class="mt-1 text-dark font-weight-bold" href="mob-8">Thành thạo ngôn ngữ lập trình Swift bằng các ứng dụng thực tế</a>
+						<a class="mt-1 text-dark font-weight-bold" href="ViewCourse.html">Thành thạo ngôn ngữ lập trình Swift bằng các ứng dụng thực tế</a>
 						<p class="mt-1 teacher">Nguyễn Xuân Thành</p>
 						<p class="teacher font-weight-bold">Lập trình di động</p>
 						<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
@@ -541,7 +552,7 @@ $('#carousel-example-2').on('slide.bs.carousel', function(h) {
 			<span class="fa fa-instagram fa-2x"></span>
 			<p class="font-weight-bold">Liên kết với chúng tôi</p>
 		</div>
-  </div>
+	</div>
 </footer>
 </body>
 <!-- InstanceEnd --></html>
