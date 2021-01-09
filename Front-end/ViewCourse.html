@@ -197,7 +197,22 @@ Giảng viên: Thạc Sỹ Võ Văn Mỹ (tốt nghiệp Đại Học Bách Khoa
 						</div>
 					</div>
 				</div>
-			 </div>
+				<div class="card">
+					<div class="card-header">
+						<div class="stars">
+                			<form action=""> <input class="star star-5" id="star-5" type="radio" name="star" /> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" /> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" /> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" /> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" /> <label class="star star-1" for="star-1"></label> </form>
+            			</div>
+					</div>
+					<div class="card-body">
+						<div class="form-group">					
+							<label for="message" class="h4">Phản hồi về khóa học</label>
+							<textarea id="message" class="form-control" rows="5" placeholder="Nhập nội dung phản hồi" required></textarea>
+						</div>
+						<button type="submit" id="form-submit" class="btn btn-outline-success float-right" onclick="myFunction()">Gửi</button>
+						<div id="msgSubmit" class="h5 text-center hidden">Cảm ơn bạn đã đóng góp ý kiến về khóa học</div>
+					</div>
+				</div>				
+			</div>
 			<div class="w-25 position-fixed bg-white pl-3 pr-3 pt-3" style="right: 11%; top: 14.5%">
 				<h4 class="font-weight-bold">Lập trình iOS với SwiftUI</h4>
 				<h6 class="mt-3">Vũ Quốc Tuấn</h6>  
@@ -207,14 +222,16 @@ Giảng viên: Thạc Sỹ Võ Văn Mỹ (tốt nghiệp Đại Học Bách Khoa
 				<a href="#" class="btn btn-danger font-weight-bold w-100 pt-3 pb-3 mt-5" role="button">Đăng ký khóa học</a>
 				<a href="#" class="btn btn-success font-weight-bold w-100 pt-2 pb-2 mt-4" role="button"><i class="fa fa-shopping-cart fa-2x"></i> Đăng ký khóa học</a>
 				 <p style="font-size: 12px; color: #979797; text-align: center; margin-top: 10px">Hoàn tiền trong 7 ngày nếu không hài lòng</p>
-		  </div>	
-			
+		  	</div>		
 		 </div>
-		 <div class="row">
-			  
-		    </div>
 	</div>
-	</main><!-- InstanceEndEditable -->
+	</main>
+	<script>
+		function myFunction(){
+    $( "#msgSubmit" ).removeClass( "hidden" );
+}
+	</script>
+	<!-- InstanceEndEditable -->
 <footer class="bg-light">
 	<div class="row footer pb-4 pt-4">
 		<div class="col-3 pl-5">
