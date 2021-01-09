@@ -43,6 +43,10 @@
 						  <a class="dropdown-item" href="../Profile-UpdateInfor.html">Thông tin</a>
 						</li>
 					  <div class="dropdown-divider"></div>
+					   <li class="dropdown-submenu">
+						  <a class="dropdown-item" href="../UpCourse.html">Đăng khóa học</a>
+						</li>
+					  <div class="dropdown-divider"></div>
 					  <a class="dropdown-item" href="../Login.html">Đăng xuất  <i class="fa fa-sign-out"></i></a>
 					</ul>
       			</li>
