@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>List Courses</title>
+<title>Upload Course</title>
 <!-- InstanceEndEditable -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -57,31 +57,47 @@
 </nav>
 </header>
 <!-- InstanceBeginEditable name="main" --><main>
-	<div class="row mt-3">
+		<div class="row mt-3">
 			<div class="col-3">
 				<div class="card-header bg-info text-white">
 				<h5 class="font-weight-bold">PROFILE</h5>
 				<p>Tên người dùng</p>
 			</div>
 				<div class="card-body">
-				<a href="Profile-ChangePass.html" role="button" class="nav-link pt-2 pb-2 text-dark">Thay đổi mật khẩu</a>
-				<div class="dropdown-divider"></div>
-				<a href="Profile-UpdateInfor.html" role="button" class="nav-link pt-2 pb-2 text-dark">Cập nhật thông tin cá nhân</a>
 				<div class="dropdown-divider"></div>
 				<a href="ListCourses.html" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách khóa học đã đăng</a>
 				<div class="dropdown-divider"></div>
 				<a href="UpCourse.html" role="button" class="nav-link pt-2 pb-2 text-dark">Đăng khóa học</a>
 			</div>
 			</div>
-			<div class="col-9 pt-4 mb-5 ml-2 row">
-				<div href="#" class="choose pt-2 row text-decoration-none text-dark card col-3">
-				<div><img src="img/mob-2.jpg" class="w-100"></div>
-				<h5 class="font-weight-bold mt-3">Lập trình IOS với Swiftui</h5>
-				<p class="name-course-sm">Nhóm giảng viên lập trình 0 khó</p>
-				<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
-				<a href="ViewCourse.html" class="btn btn-outline-info mb-3">Sửa</a>
+			<div class="col-9 mt-4 mb-5 ml-2 row bg-white pt-3 pb-3">
+				<form class="w-50">
+				  <div class="form-group mt-2">
+					<label for="exampleFormControlFile1" class="font-weight-bold">Ảnh đại diện</label>
+					<input type="file" class="form-control-file" id="exampleFormControlFile1">
+				  </div>
+				  <div class="form-group mt-2">
+					  <label for="NameCourse" class="font-weight-bold">Tên khóa học</label>
+					  <input type="email" class="form-control" id="NameCourse" placeholder="Tên khóa học">
+				  </div>
+				  <div class="form-group mt-2">
+					<label for="Motang" class="font-weight-bold">Mô tả ngắn gọn nội dung khóa học</label>
+					<textarea class="form-control" id="Motang" rows="3"></textarea>
+				  </div>
+				  <div class="form-group mt-2">
+					<label for="Motact" class="font-weight-bold">Mô tả chi tiết nội dung khóa học</label>
+					<textarea class="form-control" id="Motact" rows="3"></textarea>
+				  </div>
+				  <div class="form-group mt-2">
+					<label for="Cost" class="font-weight-bold">Học phí</label>
+					<input type="text" class="form-control" id="Cost" placeholder="đơn vị đồng">
+				  </div>
+				  <div class="form-group mt-2">
+					<label for="InformationCourse" class="font-weight-bold">Đề cương khóa học</label>
+					<input type="file" class="form-control-file" id="InformationCourse">
+				  </div>
+				</form>
 			</div>
-		</div>
 		</div>
 	</main><!-- InstanceEndEditable -->
 <footer class="bg-light">
