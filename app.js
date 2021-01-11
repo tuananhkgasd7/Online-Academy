@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 
-
 require('express-async-errors');
 
 const app = express();
@@ -13,7 +12,7 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-
+require('./middlewares/session.mdw')(app);
 require('./middlewares/view.mdw')(app);
 require('./middlewares/locals.mdw')(app);
 require('./middlewares/routes.mdw')(app);

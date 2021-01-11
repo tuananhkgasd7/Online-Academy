@@ -1,17 +1,26 @@
+{{#if err_message}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	{{err_message}}
+</div>
+{{/if}}
+
 <form method="POST" action="">
 	<div class="container-fluid login">
 		<div class="row pt-5 pb-5">
 			<div class="col-4"></div>
 			<div class="col-4 bg-light-blur pt-5 pb-4 mt-5 mb-5">
 				<form class="form">
-					<label for="email" class="mt-3">Email:</label>
-  					<input type="email" class="form-control" placeholder="@gmail.com" id="email">
-					<label for="pwd" class="mt-3">Password:</label>
-  					<input type="password" class="form-control" placeholder="Enter password" id="pwd">					
+					<label for="username" class="mt-3 w3-black w3-opacity">Email</label>
+  					<input type="email" class="form-control" placeholder="example@domain.com" id="username" name="username">
+					<label for="pwd" class="mt-3 w3-black w3-opacity">Mật khẩu</label>
+  					<input type="password" class="form-control" placeholder="Nhập mật khẩu" id="pwd" name="pwd">					
 				</form>
 				<div class="mt-4 button mb-5 pb-5">
 					<a class="float-left btn btn-outline-success" role="button" href="/">Quên mật khẩu ?</a>
-					<a class="float-right btn btn-primary" role="button" href="/">Đăng nhập</a>
+					<button class="float-right btn btn-primary" type="submit">Đăng nhập</a>
 				</div>
 			</div>
 			<div class="col-4"></div>

@@ -15,7 +15,7 @@ module.exports = {
     },
 
     async pageByCat(idCat, offset) {
-        const sql = `select * from course where catID=${idCat} limit ${paginate.limit} offset ${offset}`;
+        const sql = `select c.*, t.teacherName from course c join teacher t on c.teacherID = t.teacherID where catID=${idCat} limit ${paginate.limit} offset ${offset}`;
         const [rows, fields] = await db.load(sql);
         return rows;
     },

@@ -1,14 +1,17 @@
 const express = require('express');
-const user_models = require('../models/user.model');
+const userModel = require('../models/user.model');
+const bcrypt = require('bcryptjs');
+const auth = require('../middlewares/auth.mdw')
+
 const router = express.Router();
 
 
-router.get('/register', function (req, res, next){
+
+router.get('/register', function (req, res) {
     res.render('user/register');
 })
 
-router.post('/register', async function (req, res, next)
-{
+router.post('/register', async function (req, res) {
     //console.log(req.body);
     const hash = bcrypt.hashSync(req.body.pwd, 10);
     //const dob = monent(req.body.birth,'DD/MM/YYYY').format('YYYY-MM-DD');
@@ -22,18 +25,18 @@ router.post('/register', async function (req, res, next)
         gender: req.body.sex,
         phoneNumber: req.body.phone,
         email: req.body.username,
-        address: req.body.location
+        address: req.body.location,
+        permission: 0
     }
     console.log(new_user)
-    await user_models.add(new_user);
-    //res.render('user/signup')
+    await userModel.add(new_user);
     res.redirect('/user/login');
 })
 
-router.get('/is-available', async function(req,res)
+router.get('/is-available', async function(req, res)
 {
     const username = req.query.user;
-    const user = await user_models.singleByUserName(username);
+    const user = await userModel.singleByUserName(username);
     if(user ===null){
         return res.json(true);
     }
@@ -41,13 +44,47 @@ router.get('/is-available', async function(req,res)
     res.json(false);
 })
 
-router.get('/login', function (req, res, next){
+router.get('/login', function (req, res){
     res.render('user/login');
 })
 
-router.post('/login', async function (req, res, next)
+router.post('/login', async function (req, res)
 {
-    
+    const user = await userModel.singleByUserName(req.body.username);
+    if (user === null) {
+        return res.render('user/login', {
+            err_message: 'Email không hợp lệ.'
+        });
+    }
+
+    const ret = bcrypt.compareSync(req.body.pwd, user.password);
+    if (ret === false) {
+        return res.render('user/login', {
+            err_message: 'Mật khẩu không hợp lệ.'
+        });
+    }
+
+    req.session.auth = true;
+    req.session.authUser = user;
+
+
+    const url = req.session.retUrl || '/';
+    res.redirect(url);
 })
+
+router.get('/profile', auth, function (req, res) {
+    res.render('user/profile');
+})
+
+router.post('/logout', function (req, res) {
+    req.session.auth = false;
+    req.session.authUser = null;
+    req.session.retUrl = null;
+    //req.session.cart = [];
+    console.log(req.session.auth);
+    const url = req.headers.referer || '/';
+
+    res.redirect(url);
+  })
 
 module.exports = router;

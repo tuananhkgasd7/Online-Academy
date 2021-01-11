@@ -37,9 +37,41 @@
       <input class="form-control mr-sm-2 w-50" type="search" placeholder="Tìm khóa học, giảng viên" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
     </form>
-	<a class="form-inline my-2 my-lg-0 ml-5 btn btn-outline-success" href="/user/register" role="button">Đăng kí</a>
-	 
-	<a class="form-inline my-2 my-lg-0 ml-3 mr-5 btn btn-primary" href="/user/login">Đăng nhập</a>
+    <form id="frmLogout" action="/user/logout" method="POST"></form>
+    {{#if auth}}
+      <ul class="navbar-nav menu">
+    		  	<li class="nav-item dropdown">
+       			  <a class="nav-link dropdown-toggle text-blue-light mr-2" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <i class="fa fa-user fa-2x"></i>
+                {{authUser.fullName}}
+              </a>
+				  <ul class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+					  <li class="dropdown-submenu">
+						  <a class="dropdown-item" href="/user/profile">Thông tin</a>
+						</li>
+            {{#if authUser.permission}}
+					  <div class="dropdown-divider"></div>
+					   <li class="dropdown-submenu">
+						  <a class="dropdown-item" href="UpCourse.html">Đăng khóa học</a>
+						</li>
+            {{/if}}
+					  <div class="dropdown-divider"></div>
+					  <a class="dropdown-item" href="javascript: $('#frmLogout').submit()">Đăng xuất  <i class="fa fa-sign-out"></i></a>
+					</ul>
+      			</li>
+      </ul>
+      <a href="#" role="button" class="nav-link text-blue-light position-relative mr-2"><i class=" fa fa-bell fa-2x">
+        </i> Thông báo<p class="position-absolute tl-num">0</p>
+      </a>
+      <a href="CoursesCart.html" role="button" class="nav-link text-blue-light position-relative mr-2">
+        <i class="fa fa-shopping-cart fa-2x"></i>
+        <p class="position-absolute tl-num">0</p> Giỏ hàng
+      </a>
+      {{else}}
+      <a class="form-inline my-2 my-lg-0 ml-5 btn btn-outline-success" href="/user/register" role="button">Đăng kí</a>
+      
+      <a class="form-inline my-2 my-lg-0 ml-3 mr-5 btn btn-primary" href="/user/login">Đăng nhập</a>
+      {{/if}}
   </div>
 </nav>
 </header>

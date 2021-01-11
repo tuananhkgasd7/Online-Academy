@@ -1,5 +1,7 @@
 module.exports = function (app) {
     app.get('/', function (req, res) {
+        // console.log(req.session.auth);
+        // console.log(req.session.authUser);
         res.render('home')
     })
 
