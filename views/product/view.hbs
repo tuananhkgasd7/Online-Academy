@@ -17,9 +17,9 @@
         <div class="card col-3 pt-3">
             <img src="/Front-end/img/{{courseID}}.jpg" class="w-100">
             <a class=" mt-1 text-dark font-weight-bold" href="{{courseID}}">{{courseName}}</a>
-            <p class="mt-1 teacher">{{@root.teacherID.teacherName}}</p>  
+            <p class="mt-1 teacher">{{teacherName}}</p>  
             <p class="teacher font-weight-bold">{{catID}}</p>
-            <p class="price font-weight-bold">{{coursePrice}}đ</p>
+            <p class="price font-weight-bold">{{format_number coursePrice}}đ</p>
         </div>
         {{/each}}
         {{/if}}

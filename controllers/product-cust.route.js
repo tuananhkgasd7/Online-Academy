@@ -63,4 +63,45 @@ router.get('/detail/:id', async function (req, res){
     });
 })
 
+router.post('/search', async function(req,res)
+{
+    // const page = req.query.page || 1;
+    // if (page < 1) page = 1;
+
+    // const offset = (page - 1) * paginate.limit;
+
+    const find = req.body.search;
+
+    // const list = await productModel.search(find, offset);
+    const list = await productModel.search(find);
+
+    // const totalCourse = list.length;
+    // console.log(totalCourse)
+    // let nPages = Math.floor(totalCourse / paginate.limit);
+    // if (totalCourse % paginate.limit > 0) nPages++;
+
+    // const page_numb = [];
+    // var currentPage = 0;
+    // for (i = 1; i <= nPages; i++) {
+    //     page_numb.push({
+    //         value: i,
+    //         isCurrentPage: i === +page
+    //     });
+    //     if ((i===+page)===true)
+    //         currentPage = i;
+    // }
+
+
+    console.log(list.length);
+    res.render('product/search', {
+        products: list,
+        empty: list.length === 0,
+        // page_numb,
+        // n: currentPage===nPages,
+        // p: currentPage===1,
+        // nextPage: currentPage + 1,
+        // prePage: currentPage - 1
+    });
+})
+
 module.exports = router;

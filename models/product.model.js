@@ -3,7 +3,7 @@ const { paginate } = require('./../config/default.json');
 
 module.exports = {
     async all() {
-        const sql = 'select * from course';
+        const sql = 'select c.*, t.teacherName, ca.catName from (course c join teacher t on c.teacherID = t.teacherID) join category ca on c.catID = ca.catID';
         const [rows, fields] = await db.load(sql);
         return rows;
     },
@@ -42,5 +42,21 @@ module.exports = {
             return null;
         console.log(rows);
         return rows[0];
+    },
+    
+    async search(search){
+        const sql = `select c.*, t.teacherName,
+        sum(match(c.courseName) against('${search}' IN BOOLEAN MODE) +
+        match(t.teacherName) against('${search}' IN BOOLEAN MODE)) as relevance
+    from course c left join teacher t on c.teacherID = t.teacherID 
+    where
+        match(c.courseName) against('${search}' IN BOOLEAN MODE) or
+        match(t.teacherName) against('${search}' IN BOOLEAN MODE)
+    group by
+        c.courseID
+    order by
+    relevance DESC`;
+        const [rows,fields] = await db.load(sql);
+        return rows;
     }
 };

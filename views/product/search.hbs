@@ -1,0 +1,75 @@
+<div class=" row">
+    <div class="col-3">
+        <div class="card-header">
+            <h5 class="font-weight-bold">Danh sách lĩnh vực</h5>
+        </div>
+        <div class="card-body">
+            {{#each lcCategories}}
+            <a href="/products/byCat/{{catID}}" role="button" class="nav-link pt-2 pb-2 text-dark">
+            {{#if IsActive}}<i class="fa fa-caret-right" aria-hidden="true"></i>{{/if}}
+            <span class="ml-1">{{catName}}</span>
+            <span class="badge badge-pill badge-danger float-right">{{courseCount}}</span>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+       <div class="col-9 row">
+        {{#if this.empty}}
+        <h5 class="card-title">Không có dữ liệu!</h5>
+    	<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        {{else}}
+        {{#each this.products}}
+        <div class="pt-3 col-3 h-300px">
+            <div class="container card pt-3 choose h-100">
+                <img src="/Front-end/img/{{courseID}}.jpg" class="w-100">
+                <a class=" mt-1 text-dark font-weight-bold" href="/products/detail/{{courseID}}">{{courseName}}</a>
+                <p class="mt-1 teacher">{{teacherName}}</p>
+                <p class="teacher font-weight-bold">{{catName}}</p>
+				<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
+                <p class="price font-weight-bold">{{format_number coursePrice}}đ</p>
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>
+{{!-- <div class="row mt-3">
+    <div class="col-3"></div>
+    <div class="col-9">
+        <nav>
+            <ul class="pagination justify-content-center">
+                {{#if this.p}}
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                {{else}}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{this.prePage}}">Previous</a>
+                    </li>
+                {{/if}}
+
+                {{#each this.page_numb}}
+                {{#if isCurrentPage}}
+                <li class="page-item active">
+                    <a class="page-link" href="javascript:;">{{value}}</a>
+                </li>
+                {{else}}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{value}}">{{value}}</a>
+                </li>
+                {{/if}}
+                {{/each}}
+
+                {{#if this.n}}
+                    <li class="page-item disabled">
+                        <span class="page-link">Next</span>
+                    </li>
+                {{else}}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{this.nextPage}}">Next</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </nav>
+    </div>
+</div> --}}
