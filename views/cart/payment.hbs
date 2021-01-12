@@ -1,0 +1,40 @@
+<div class="bg-info">
+		<div class="container">
+			<h2 class="text-white pt-4 pb-4 font-weight-bold">Thông tin người đặt hàng</h2>
+		</div>
+</div>
+<form method="POST" action="/cart/checkout">
+<div class="container bg-white">
+	<div class="row pt-5 pb-5">
+		{{#if this.empty}}
+		<h5 class="card-title">Không có dữ liệu!</h5>
+		<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+		{{else}}
+		<div class="col-6">
+				<label for="name" class="font-weight-bold">Họ và tên</label>
+				<input type="text" class="form-control" id="name" name="name" value="{{authUser.fullName}}">
+				<label for="email" class="font-weight-bold mt-3">Email</label>
+				<input type="email" class="form-control" id="email" name="email" value="{{authUser.email}}">
+				<label for="phone" class="font-weight-bold mt-3">Số điện thoại</label>
+				<input type="text" class="form-control" id="phone" name="phone" value="{{authUser.phoneNumber}}">
+				<label for="address" class="font-weight-bold mt-3">Địa chỉ</label>
+				<input type="text" class="form-control" id="address" name="address" value="{{authUser.address}}">
+		</div>
+		<div class="col-6">
+			<p class="font-weight-bold">Đơn hàng <span><a href="/cart" class="float-right font-weight-normal">Sửa</a></span></p>
+			<div class="dropdown-divider"></div>
+			{{#each this.items}}
+			<p>{{product.courseName}}<span class="float-right font-weight-bold">{{format_number product.coursePrice}}đ</span></p>
+			<div class="dropdown-divider"></div>
+			{{/each}}
+		{{/if}}
+			{{#unless this.empty}}
+			<p class="font-weight-bold">Thành tiền: <span class="font-weight-bold text-danger float-right">{{format_number temp}}đ</span></p>
+			<button type="submit" class="btn btn-danger text-center pl-5 pr-5 font-weight-bold">Thanh toán</button>
+			<a href="/" class="btn btn-info text-center pl-5 pr-5 font-weight-bold ml-3">Hủy bỏ</a>
+			<br><br><small>Học viên vui lòng chuyển khoản qua ngân hàng Sacombank với nội dung là họ tên và địa chỉ, chụp lại hóa đơn. Sau đó, gửi ảnh qua gmail onlineacademy@gmail.com để xác nhận thanh toán.</small>
+			{{/unless}}
+		</div>
+	</div>
+</div>
+</form>

@@ -1,0 +1,52 @@
+{{#section 'js'}}
+<script>
+    $('.removeItem').on('click', function () {
+        const id = $(this).data('id');
+        $('#ProID').val(id);
+        $('#frmRemoveItem').submit();
+    })
+</script>
+{{/section}}
+
+
+<div class="bg-info">
+        <div class="container">
+            <h2 class="text-white pt-4 pb-4 font-weight-bold">Giỏ hàng</h2>
+        </div>
+</div>
+<div class="container pt-3 pb-3">
+    <div class="row">
+        <div class="col-9 bg-white pt-3 pb-3">
+            {{#if this.empty}}
+            <h5 class="card-title">Không có dữ liệu!</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            {{else}}
+            <form id="frmRemoveItem" action="/cart/remove" method="POST">
+                <input type="hidden" id="ProID" name="id">
+            </form>
+            {{#each this.items}}
+            <div class="row">
+                <div class="col-4"><img src="/Front-end/img/{{product.courseID}}.jpg" class="w-100"></div>
+                <div class="col-6 pt-2">
+                    <a href="/products/detail/{{product.courseID}}"><h5>{{product.courseName}}</h5></a>
+                    <h6>Giảng viên: {{teacher.teacherName}}</h6>
+                </div>
+                <div class="col-2 pt-2">
+                    <h5 class="font-weight-bold text-danger">{{format_number price}}đ</h5>
+                    <a data-id="{{product.courseID}}" href="javascript:;" class="fa fa-trash fa-2x text-white float-right mt-5 btn btn-danger removeItem" title="Remove Course" role="button"></a>
+                </div>
+            </div>
+            {{/each}}
+            <div class="dropdown-divider"></div>
+            {{/if}}
+        </div>
+        {{#unless this.empty}}            
+        <div class="col-3">
+            <div class="bg-white pl-3 pr-3 pt-4 pb-4">
+                <h5 class="font-weight-bold">Tổng tiền: <span class="font-weight-bold text-danger ml-3">{{format_number temp}}đ</span></h5>
+                <a href="/cart/payment" class="btn btn-danger text-white w-100 font-weight-bold mt-3" role="button">Thanh toán</a>
+            </div>
+        </div>
+        {{/unless}}
+    </div>
+</div>

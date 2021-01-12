@@ -36,8 +36,8 @@ router.get('/byCat/:id', async function (req, res){
 
     const list = await productModel.pageByCat(idCat, offset);
 
-    console.log(currentPage + 1);
-    console.log(currentPage - 1);
+    // console.log(currentPage + 1);
+    // console.log(currentPage - 1);
 
     res.render('product/byCat', {
         products: list,

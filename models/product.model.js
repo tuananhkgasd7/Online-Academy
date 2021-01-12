@@ -9,13 +9,13 @@ module.exports = {
     },
 
     async allByCat(idCat) {
-        const sql = "select c.*, t.teacherName from course c join teacher t where c.teacherID = t.teacherID and c.catID = " + idCat;
+        const sql = `select c.*, t.teacherName, ca.catName from (course c join teacher t on c.teacherID = t.teacherID) join category ca on c.catID = ca.catID where c.catID= ${idCat}`;
         const [rows, fields] = await db.load(sql);
         return rows;
     },
 
     async pageByCat(idCat, offset) {
-        const sql = `select c.*, t.teacherName from course c join teacher t on c.teacherID = t.teacherID where catID=${idCat} limit ${paginate.limit} offset ${offset}`;
+        const sql = `select c.*, t.teacherName, ca.catName from (course c join teacher t on c.teacherID = t.teacherID) join category ca on c.catID = ca.catID where c.catID= ${idCat} limit ${paginate.limit} offset ${offset}`;
         const [rows, fields] = await db.load(sql);
         return rows;
     },
@@ -32,6 +32,15 @@ module.exports = {
         if (rows.length === 0)
             return null;
 
+        return rows[0];
+    },
+
+    async getTeacher(idCourse) {
+        const sql = `select t.* from course c join teacher t on c.teacherID = t.teacherID where courseID = '${idCourse}'`;
+        const [rows, fields] = await db.load(sql);
+        if (rows.length === 0)
+            return null;
+        console.log(rows);
         return rows[0];
     }
 };

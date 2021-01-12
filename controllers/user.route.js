@@ -80,11 +80,11 @@ router.post('/logout', function (req, res) {
     req.session.auth = false;
     req.session.authUser = null;
     req.session.retUrl = null;
-    //req.session.cart = [];
+    req.session.cart = [];
     console.log(req.session.auth);
     const url = req.headers.referer || '/';
 
     res.redirect(url);
-  })
+})
 
 module.exports = router;

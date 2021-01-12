@@ -1,3 +1,5 @@
+const auth = require('./auth.mdw');
+
 module.exports = function (app) {
     app.get('/', function (req, res) {
         // console.log(req.session.auth);
@@ -13,8 +15,9 @@ module.exports = function (app) {
         res.render('user/register', {layout: false});
     })
 
-    app.use('/user', require('../controllers/user.route'));
+    app.use('/user/', require('../controllers/user.route'));
     app.use('/products/', require('../controllers/product-cust.route'));
+    app.use('/cart/', auth, require('../controllers/cart.route'));
     app.use('/admin/categories/', require('../controllers/category.route'));
     app.use('/admin/products/', require('../controllers/product.route'));
 }
