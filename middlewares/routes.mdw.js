@@ -1,18 +1,27 @@
 const auth = require('./auth.mdw');
+const productModel = require('../models/product.model');
 
 module.exports = function (app) {
-    app.get('/', function (req, res) {
-        // console.log(req.session.auth);
-        // console.log(req.session.authUser);
-        res.render('home')
-    })
+    app.get('/', async function (req, res) {
+        const most_joined = await productModel.mostJoinedCourse();
+        const most_joined_one = most_joined[0];
+        most_joined.splice(0, 1);
 
-    app.get('/login', function (req, res) {
-        res.render('user/login', {layout: false});
-    });
+        const latest = await productModel.latestCourse();
+        const latest_one = latest[0];
+        latest.splice(0, 1);
 
-    app.get('/register', function (req, res) {
-        res.render('user/register', {layout: false});
+        const top = await productModel.topCourse();
+        const top_one = top[0];
+        top.splice(0, 1);
+        res.render('home', {
+            most_joined,
+            most_joined_one,
+            latest,
+            latest_one,
+            top,
+            top_one
+        })
     })
 
     app.use('/user/', require('../controllers/user.route'));

@@ -33,7 +33,7 @@
         {{/if}}
     </div>
 </div>
-{{!-- <div class="row mt-3">
+<div class="row mt-3">
     <div class="col-3"></div>
     <div class="col-9">
         <nav>
@@ -44,7 +44,7 @@
                     </li>
                 {{else}}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{this.prePage}}">Previous</a>
+                        <a class="page-link" href="?search={{find}}&page={{this.prePage}}">Previous</a>
                     </li>
                 {{/if}}
 
@@ -55,7 +55,7 @@
                 </li>
                 {{else}}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{value}}">{{value}}</a>
+                    <a class="page-link" href="?search={{find}}&page={{value}}">{{value}}</a>
                 </li>
                 {{/if}}
                 {{/each}}
@@ -66,10 +66,10 @@
                     </li>
                 {{else}}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{this.nextPage}}">Next</a>
+                        <a class="page-link" href="?search={{find}}&page={{this.nextPage}}">Next</a>
                     </li>
                 {{/if}}
             </ul>
         </nav>
     </div>
-</div> --}}
+</div>

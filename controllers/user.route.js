@@ -12,11 +12,7 @@ router.get('/register', function (req, res) {
 })
 
 router.post('/register', async function (req, res) {
-    //console.log(req.body);
     const hash = bcrypt.hashSync(req.body.pwd, 10);
-    //const dob = monent(req.body.birth,'DD/MM/YYYY').format('YYYY-MM-DD');
-    // console.log(hash);
-    //console.log(dob);
     const new_user = {
         userName: req.body.username,
         password: hash,

@@ -21,11 +21,11 @@
         {{#each this.products}}
         <div class="pt-3 col-3 h-300px">
             <div class="container card pt-3 choose h-100">
-                <img src="/Front-end/img/{{courseID}}.jpg" alt="{{courseName}}" title="{{courseName}}" class="w-100">
+                <img src="/Front-end/img/{{courseID}}.jpg" class="w-100">
                 <a class=" mt-1 text-dark font-weight-bold" href="/products/detail/{{courseID}}">{{courseName}}</a>
                 <p class="mt-1 teacher">{{teacherName}}</p>
                 <p class="teacher font-weight-bold">{{catName}}</p>
-				<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
+				<p class="teacher">Đánh giá: {{rating}} <i class="fa fa-star text-warning"></i> ({{numRating}} người đánh giá)</p>
                 <p class="price font-weight-bold">{{format_number coursePrice}}đ</p>
             </div>
         </div>

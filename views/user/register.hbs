@@ -6,9 +6,6 @@
 				<form class="form">
 					<label for="username" class="mt-3 text-white">Email</label>
   					<input type="email" class="form-control" placeholder="example@domain.com" id="username" name="username">
-					<button id="btcheck" type="submit" class="btn btn-info mt-2 position-absolute">Kiểm tra</button>
-					</br>
-					</br>
 
 					<label for="pwd" class="mt-3 text-white">Mật khẩu</label>
   					<input type="password" class="form-control" id="pwd" name="pwd">					
@@ -47,23 +44,77 @@
 		$("form").submit(function(event){
 			event.preventDefault();
 			const Username = $('#username').val();
-			console.log(Username);
-			if(Username.length===0)
-			{
-				alert('Dữ liệu không hợp lệ');
+			const Pass = $('#pwd').val();
+			const conPass = $('#cpwd').val();
+			const Name = $('#name').val();
+			const Birth = $('#birth').val();
+			const Sex = $('#sex').val();
+			const Address = $('#location').val();
+			const Phone = $('#phone').val();
+	
+			if(Username.length===0 || Pass.length === 0 || conPass.length === 0 || 
+			Name.length === 0 || Birth.length === 0 || Sex.length === 0 || Address.length === 0 || Phone.length === 0){
+				alert('Chưa điền đầy đủ thông tin');
 				return;
 			}
+
+			if (Pass.length < 3 || Pass.length > 20) {
+				alert('Mật khẩu phải chứa tối thiểu 3 ký tự và tối đa 20 ký tự');
+				return;
+			}
+			else {
+				if (Pass !== conPass){
+					alert('Nhập lại mật khẩu không chính xác');
+					return;
+				}
+			}
+
+			if (Name.length < 2 || Name.indexOf(" ") == -1) {
+				alert('Họ tên không được dưới 2 ký tự và phải chứa ít nhất một khoảng trắng');
+				return;
+			}
+			else {
+				for (i = 0; i < Name.length; ++i) {
+					if (Name.charCodeAt(i) >= 48 && Name.charCodeAt(i) <= 57) {
+						alert('Họ tên không được chứa ký tự là số');
+						return;
+					}
+					else if (Name.charCodeAt(i) === 32 && (Name.charCodeAt(i + 1) < 65 || Name.charCodeAt(i + 1) > 90)) {
+						alert('Chữ cái đầu sau khoảng trắng của Họ tên phải được viết hoa đầy đủ');
+						return;
+					}
+				}
+			}
+
+			if (Address.length < 5) {
+				alert('Địa chỉ không được dưới 5 ký tự');
+				return;
+			}
+			
+			if (Phone.length !== 10) {
+				alert('Số điện thoại nhập vào phải đủ 10 số');
+				return;
+			}
+			else {
+				for (i = 0; i < Phone.length; ++i) {
+					if (Phone.charCodeAt(i) < 48 || Phone.charCodeAt(i) > 57) {
+						alert('Số điện thoại chỉ được chứa ký tự là số');
+						return;
+					}
+				}
+			}
+
+
 			$.getJSON(`/user/is-available?user=${Username}`, function(data){
 				console.log(data);
 				if(data===true) {
-					alert('đăng ký thành công');
+					alert('Đăng ký thành công');
 					$("form").off('submit').submit();
 				} else {
 					alert('Email đã tồn tại');
 					return ;
 				}
 			})
-
 		});
 	</script>
 </form>
