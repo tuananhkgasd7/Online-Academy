@@ -6,6 +6,10 @@ main{
 .h-400px{height: 450px}
 .h-310px{height: 330px!important}
 .h-360px{height: 360px}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
 .login{
 	background-image: url("../img/bg-1.jpg");
 	background-repeat: no-repeat;
