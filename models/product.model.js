@@ -35,6 +35,18 @@ module.exports = {
         return rows[0];
     },
 
+    async update(entity){
+        const condition =  {
+           courseID: entity.courseID
+        };
+        console.log(condition)
+        console.log(entity)
+        delete (entity.courseID);
+        const [rows, fields] = await db.update(entity, condition,'course');
+        console.log(rows)
+        return rows;
+    },
+
     async getTeacher(idCourse) {
         const sql = `select t.* from course c join teacher t on c.teacherID = t.teacherID where courseID = '${idCourse}'`;
         const [rows, fields] = await db.load(sql);

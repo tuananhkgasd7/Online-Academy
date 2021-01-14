@@ -1,5 +1,7 @@
 const express = require('express');
 const productModel = require('../models/product.model');
+const ratingModel = require('../models/rating.model');
+const moment = require('moment');
 const { paginate } = require('../config/default.json');
 
 const router = express.Router();
@@ -60,13 +62,74 @@ router.get('/detail/:id', async function (req, res){
 
     const most_buy = await productModel.mostBuyCourse(product.catID);
 
+    const numRating = await ratingModel.getNumRating(idCourse);
+
+    const rating = await ratingModel.getRating(idCourse);
+
+    const star_1 = await ratingModel.getNumRating_Star(1, idCourse);
+    const star_2 = await ratingModel.getNumRating_Star(2, idCourse);
+    const star_3 = await ratingModel.getNumRating_Star(3, idCourse);
+    const star_4 = await ratingModel.getNumRating_Star(4, idCourse);
+    const star_5 = await ratingModel.getNumRating_Star(5, idCourse);
+
+    const user_comments = await ratingModel.getUserComment(idCourse);
+    console.log(user_comments);
+
+    const rateOfCourse = {
+        numRating,
+        rating,
+        user_comments,
+        star_1,
+        star_2,
+        star_3,
+        star_4,
+        star_5,
+    }
+
+    console.log(rateOfCourse)
+
+    // if (rating !== product.rating) {
+    //     const course_rate = {
+    //         courseID: idCourse,
+    //         numRating,
+    //         rating
+    //     }
+    
+    //     await productModel.update(course_rate);
+    // }
+
+    const course_rate = {
+        courseID: idCourse,
+        numRating,
+        rating
+    }
+
+    await productModel.update(course_rate);
+
+
     if (product === null){
         return res.redirect('/product/byCat');
     }
     res.render('product/detail', {
         product,
-        most_buy
+        most_buy,
+        rateOfCourse
     });
+})
+
+router.post('/detail/:id', async function (req, res) {
+    const idCourse = req.params.id;
+
+    const new_comment = {
+        dateComment: moment().format('YYYY-MM-DD HH:mm:ss'),
+        courseID: idCourse,
+        userID: req.session.authUser.userID,
+        rate: req.body.rate,
+        comment: req.body.comment
+    }
+    console.log(new_comment);
+    await ratingModel.add(new_comment);
+    res.redirect(req.headers.referer);
 })
 
 router.get('/search', async function(req, res) {

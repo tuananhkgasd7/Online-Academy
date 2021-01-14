@@ -63,20 +63,22 @@ Giảng viên: Thạc Sỹ Võ Văn Mỹ (tốt nghiệp Đại Học Bách Khoa
 						</div>
 					</div>
 				</div>
+				{{/with}}
 				<div class="card mt-3">
 					<div class="card-header">
 						<h5 class="font-weight-bold">Đánh giá của học viên</h5>
 					</div>
 					<div class="card-body row">
+						{{#with this.rateOfCourse}}
 						<div class="col-5">
-							<h1 class="font-weight-bold text-center pt-4" style="font-size: 100px">5 <i class="fa fa-star text-warning"></i></h1>
+							<h1 class="font-weight-bold text-center pt-4" style="font-size: 88px">{{rating}} <i class="fa fa-star text-warning"></i></h1>
 						</div>
 						<div class="col-7">
-							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i> (1 đánh giá)</p>
-							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star"></i> (0 đánh giá)</p>
-							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> (0 đánh giá)</p>
-							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> (0 đánh giá)</p>
-							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> (0 đánh giá)</p>
+							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i> ({{star_5}} đánh giá)</p>
+							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star"></i> ({{star_4}} đánh giá)</p>
+							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> ({{star_3}} đánh giá)</p>
+							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> ({{star_2}} đánh giá)</p>
+							<p><i class="fa fa-star text-warning"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> ({{star_1}} đánh giá)</p>
 						</div>
 					</div>
 				</div>
@@ -85,31 +87,49 @@ Giảng viên: Thạc Sỹ Võ Văn Mỹ (tốt nghiệp Đại Học Bách Khoa
 						<h5 class="font-weight-bold">Nhận xét của học viên</h5>
 					</div>
 					<div class="card-body row">
-						<div class="col-3"><img src="img/mob-2-fb-1.jpg" class="w-100"></div>
+						{{#each user_comments}}
+						<div class="col-3"><img src="/Front-end/img/default_avatar.jpg" class="w-100"></div>
 						<div class="col-9">
-							<h6>Trần Chương Dương</h6>
-							<p class="text-warning"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
-							<p style="font-size: 14px">Thầy dạy hay quá mong thầy có thêm nhiều khóa học hơn nữa</p>
+							<h6>{{fullName}}</h6>
+							<small class="text-black-50">{{format_time dateComment}}</small>
+							<p class="text-warning">{{rate}} <i class="fa fa-star"></i>
+							<p style="font-size: 14px">{{comment}}</p>
 						</div>
+						{{/each}}
 					</div>
 				</div>
-				<div class="card">
-					<div class="card-header">
-						<div class="stars">
-                			<form action=""> <input class="star star-5" id="star-5" type="radio" name="star" /> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" /> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" /> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" /> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" /> <label class="star star-1" for="star-1"></label> </form>
-            			</div>
-					</div>
-					<div class="card-body">
-						<div class="form-group">					
-							<label for="message" class="h4">Phản hồi về khóa học</label>
-							<textarea id="message" class="form-control" rows="5" placeholder="Nhập nội dung phản hồi" required></textarea>
+				{{/with}}
+				{{#if auth}}
+				<form action=""  method="POST"> 
+					<div class="card">
+						<div class="card-header">
+							<div class="stars">
+									<input class="star star-5" id="star-5" type="radio" name="rate" value="5"> 
+									<label class="star star-5" for="star-5"></label> 
+									<input class="star star-4" id="star-4" type="radio" name="rate" value="4"> 
+									<label class="star star-4" for="star-4"></label> 
+									<input class="star star-3" id="star-3" type="radio" name="rate" value="3"> 
+									<label class="star star-3" for="star-3"></label> 
+									<input class="star star-2" id="star-2" type="radio" name="rate" value="2"> 
+									<label class="star star-2" for="star-2"></label> 
+									<input class="star star-1" id="star-1" type="radio" name="rate" value="1"> 
+									<label class="star star-1" for="star-1"></label> 
+							</div>
 						</div>
-						<button type="submit" id="form-submit" class="btn btn-outline-success float-right" onclick="myFunction()">Gửi</button>
-						<div id="msgSubmit" class="h5 text-center hidden">Cảm ơn bạn đã đóng góp ý kiến về khóa học</div>
-					</div>
-				</div>				
+						<div class="card-body">
+							<div class="form-group">					
+								<label for="message" class="h4">Phản hồi về khóa học</label>
+								<textarea id="message" name="comment" class="form-control" rows="5" placeholder="Nhập nội dung phản hồi" required></textarea>
+							</div>
+							<button type="submit" id="form-submit" class="btn btn-outline-success float-right" onclick="myFunction()">Gửi</button>
+							<div id="msgSubmit" class="h5 text-center hidden">Cảm ơn bạn đã đóng góp ý kiến về khóa học</div>
+						</div>
+					</div>	
+				</form>
+				{{/if}}			
 			</div>
     </div>
+	{{#with this.product}}
     <div class="w-25 position-fixed bg-white pl-3 pr-3 pt-3" style="right: 11%; top: 14.5%">
         <h4 class="font-weight-bold">{{courseName}}</h4>
         <h6 class="mt-3">{{teacherName}}</h6>
