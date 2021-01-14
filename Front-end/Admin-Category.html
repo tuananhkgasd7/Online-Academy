@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Upload Course</title>
+<title>Admin category</title>
 <!-- InstanceEndEditable -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -69,41 +69,42 @@
 			</div>
 				<div class="card-body">
 				<div class="dropdown-divider"></div>
-				<a href="Teacher-Infor.html" role="button" class="nav-link pt-2 pb-2 text-dark">Giới thiệu</a>
-				<a href="ListCourses.html" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách khóa học đã đăng</a>
-				<div class="dropdown-divider"></div>
-				<a href="UpCourse.html" role="button" class="nav-link pt-2 pb-2 text-white bg-info">Đăng khóa học</a>
+				<a href="Admin-ViewStudentList.html" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách học viên</a>
+				<a href="Admin-ViewTeacherList.html" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách giảng viên</a>
+				<a href="Admin-RegisterTeacher.html" role="button" class="nav-link pt-2 pb-2 text-dark">Cấp tài khoản giảng viên</a>	
+				<a href="Admin-Category.html" role="button" class="nav-link pt-2 pb-2 text-white bg-info">Quản lí lĩnh vực</a>	
 			</div>
 			</div>
-			<div class="col-9 mt-4 mb-5 ml-2 row bg-white pt-3 pb-3">
-				<form class="w-50">
-				  <div class="form-group mt-2">
-					<label for="exampleFormControlFile1" class="font-weight-bold">Ảnh đại diện</label>
-					<input type="file" class="form-control-file" id="exampleFormControlFile1">
-				  </div>
-				  <div class="form-group mt-2">
-					  <label for="NameCourse" class="font-weight-bold">Tên khóa học</label>
-					  <input type="email" class="form-control" id="NameCourse" placeholder="Tên khóa học">
-				  </div>
-				  <div class="form-group mt-2">
-					<label for="Motang" class="font-weight-bold">Mô tả ngắn gọn nội dung khóa học</label>
-					<textarea class="form-control" id="Motang" rows="3"></textarea>
-				  </div>
-				  <div class="form-group mt-2">
-					<label for="Motact" class="font-weight-bold">Mô tả chi tiết nội dung khóa học</label>
-					<textarea class="form-control" id="Motact" rows="3"></textarea>
-				  </div>
-				  <div class="form-group mt-2">
-					<label for="Cost" class="font-weight-bold">Học phí</label>
-					<input type="text" class="form-control" id="Cost" placeholder="đơn vị đồng">
-				  </div>
-				  <div class="form-group mt-2">
-					<label for="InformationCourse" class="font-weight-bold">Đề cương khóa học</label>
-					<input type="file" class="form-control-file" id="InformationCourse">
-				  </div>
-				  <button type="submit" class="btn btn-outline-primary">Xác nhận</button>
-				</form>
+			<div class="col-9 pt-4 mb-5 ml-2 row">
+				<div class="container pr-5">
+			<div class="card">
+				<div class ="d-flex justify-content-between card-header">
+					<h4>Danh sách lĩnh vực</h4>
+					<a href="InputCategory.html" class="btn btn-outline-success fa fa-plus font-weight-bold" role="button"> Thêm lĩnh vực</a>
+				</div>
+				<div class = "card-body">
+					<table class="table table-hover">
+					<thead>
+						<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Tên</th>
+						<th scope="col">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>			
+						<tr>
+						<th scope="row">#id</th>
+						<td>#catName</td>
+						<td class="text-right">
+							<a href="ChangeCategory.html" class="btn btn-outline-info" role="button">Sửa</a>
+						</td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
 			</div>
+		</div>
+		</div>
 		</div>
 	</main><!-- InstanceEndEditable -->
 <footer class="bg-light">
