@@ -1,0 +1,41 @@
+<form method="POST" action="">
+	<div class="container-fluid login">
+		<div class="row pt-5 pb-5">
+			<div class="col-4"></div>
+			<div class="col-4 bg-light-blur pt-5 pb-4 mt-5 mb-5">
+				<form class="form">
+					<label for="username" class="mt-3 w3-black w3-opacity">Email</label>
+  					<input type="email" class="form-control" placeholder="example@domain.com" id="username" name="username">			
+				</form>
+				<div class="mt-4 button mb-5 pb-5">
+					<a class="float-left btn btn-outline-success" role="button" href="/">Hủy bỏ</a>
+					<button class="float-right btn btn-primary" type="submit">Xác nhận</a>
+				</div>
+			</div>
+			<div class="col-4"></div>
+		</div>
+	</div>
+</form>
+<script>
+		$("form").submit(function(event){
+			event.preventDefault();
+			const Username = $('#username').val();
+			console.log(Username);
+			if(Username.length===0)
+			{
+				alert('Bạn chưa nhập email');
+				return;
+			}
+			$.getJSON(`/user/is-available?user=${Username}`, function(data){
+				console.log(data);
+				if(data===true){
+					alert('Email không tồn tại');
+                    return;
+				}
+                else{
+					$("form").off('submit').submit();
+				}
+			});
+
+		});
+</script>

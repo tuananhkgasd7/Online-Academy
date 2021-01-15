@@ -89,7 +89,7 @@ module.exports = {
         const sql = `select c.*, t.teacherName, ca.catName
         from (course c left join teacher t on c.teacherID = t.teacherID) left join category ca on c.catID = ca.catID
         ORDER BY c.numStudent DESC 
-        LIMIT 10`;
+        LIMIT 5`;
         const [rows, fields] = await db.load(sql);
         return rows;
       },

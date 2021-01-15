@@ -1,0 +1,28 @@
+{{#with authUser}}
+{{#if IsTeacher}}
+<div class="row mt-3">
+	<div class="col-3">
+        <div class="card-header bg-info text-white">
+            <h5 class="font-weight-bold">PROFILE</h5>
+            <p>Tên người dùng</p>
+        </div>
+        <div class="card-body">
+            <div class="dropdown-divider"></div>
+            <a href="/user/profile" role="button" class="nav-link pt-2 pb-2 text-white bg-info">Giới thiệu</a>
+            <a href="/user/profile/view_course" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách khóa học đã đăng</a>
+            <div class="dropdown-divider"></div>
+            <a href="/user/profile/add_course" role="button" class="nav-link pt-2 pb-2 text-dark">Đăng khóa học</a>
+        </div>
+    </div>
+		<div class="col-9 pt-4 mb-5 ml-2 row">
+			<div href="#" class="choose pt-2 row text-decoration-none text-dark card col-3">
+			<div><img src="img/mob-2.jpg" class="w-100"></div>
+			<h5 class="font-weight-bold mt-3">Lập trình IOS với Swiftui</h5>
+			<p class="name-course-sm">Nhóm giảng viên lập trình 0 khó</p>
+			<p class="teacher">Đánh giá: 4,5 <i class="fa fa-star text-warning"></i> (số người đánh giá)</p>
+			<a href="UpdateCourse.html" class="btn btn-outline-info mb-3">Cập nhật</a>
+		</div>
+	</div>
+</div>
+{{/if}}
+{{/with}}

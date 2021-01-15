@@ -106,12 +106,14 @@ router.get('/detail/:id', async function (req, res){
 
     await productModel.update(course_rate);
 
+    const teacher = await productModel.getTeacher(idCourse);
 
     if (product === null){
         return res.redirect('/product/byCat');
     }
     res.render('product/detail', {
         product,
+        teacher,
         most_buy,
         rateOfCourse
     });

@@ -40,6 +40,17 @@ router.post('/add', async function (req, res) {
     res.redirect(req.headers.referer);
 })
 
+router.post('/addCourse', async function (req, res) {
+    console.log(req.body.id);
+    const item = {
+        id: req.body.id,
+        quantity: 1,
+    }
+
+    cartModel.add(req.session.cart, item);
+    res.redirect('/cart/payment');
+})
+
 router.post('/remove', async function (req, res) {
     cartModel.remove(req.session.cart, req.body.id);
     res.redirect(req.headers.referer);
@@ -102,7 +113,9 @@ router.post('/checkout', async function (req, res) {
     }
 
     req.session.cart = [];
-    res.redirect(req.headers.referer);
+    res.redirect(req.headers.referer, {
+        message: 'Thanh toán thành công'
+    });
 })
 
 module.exports = router;

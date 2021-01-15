@@ -1,0 +1,41 @@
+{{#if authUser.IsAdmin}}
+<div class="row mt-3">
+<div class="col-3">
+    <div class="card-header bg-info text-white">
+        <h5 class="font-weight-bold">PROFILE</h5>
+        <p>{{authUser.fullName}}</p>
+    </div>
+    <div class="card-body">
+        <a href="/user/profile/viewListStudent" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách học viên</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/viewListTeacher" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách giảng viên</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/registerTeacher" role="button" class="nav-link pt-2 pb-2 text-dark">Cấp tài khoản giảng viên</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/viewListCategory" role="button" class="nav-link pt-2 pb-2 text-dark">Quản lí lĩnh vực</a>
+    </div>
+</div>
+<div class="col-9 pt-4 mb-5 ml-2 row">
+    {{#if this.empty}}
+            <h5 class="card-title">Không có dữ liệu!</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    {{else}}
+    <table class="w-75">
+        <tr>
+            <th class="p-2">ID</th>
+            <th class="p-2">Tài khoản</th>
+            <th class="p-2">Họ tên</th>
+            <th class="p-2">Khóa tài khoản</th>
+        </tr>
+        {{#each this.teachers}}
+        <tr>
+            <td class="p-2">{{userID}}</td>
+            <td class="p-2">{{userName}}</td>
+            <td class="p-2">{{fullName}}</td>
+            <td class="p-2"><a href="#" class="btn btn-info">Khóa tài khoản</a></td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/if}}
+</div>
+{{/if}}

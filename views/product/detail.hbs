@@ -44,22 +44,15 @@
 					<div class="dropdown-divider"></div>
 					{{/each}}					
 			 	</div>
-				 {{#with this.product}}
+				 {{#with this.teacher}}
 				<div class="card mt-3">
-					<div class="card-header"><h5 class="font-weight-bold">Thông tin giàng viên</h5></div>
+					<div class="card-header"><h5 class="font-weight-bold">Thông tin giảng viên</h5></div>
 					<div class="card-body row">
 						<div class="col-4">
-							<img src="img/gvlt0k.jpg" class="w-100 border">
-							<h6 class="mt-2 font-weight-bold fa fa-play-circle"> 2 khóa học</h6>
 						</div>
 						<div class="col-8">
-							<a href="#" class="font-weight-bold nav-link pt-0 pl-0 text-info">Nhóm giảng viên Lập Trình 0 Khó</a>
-							<p style="font-size: 14px; line-height: 2.3">Trung tâm đào tạo LapTrinh0Kho.com. 
-<br>Chuyên đào tạo lập trình iOS.
-<br>Đội ngũ giảng viên của LapTrinh0Kho.com là các Thạc sỹ đến từ Đại học Bách khoa Thành phố Hồ Chí Minh, Đại Học Công nghệ Thông tin - Đại học Quốc gia Thành phố Hồ Chí Minh và các kỹ sư lập trình iOS có nhiều năm kinh nghiệm tại môi trường doanh nghiệp.
-<br>Giảng viên: Hồ Nguyễn Anh Kha. Kinh nghiệm: 5 năm lập trình với iOS, tham gia rất nhiều dự án ở môi trường doanh nghiệp. Hiện đang làm iOS dev cho Covisoft.
-Giảng viên: Thạc Sỹ Lê Quang Thái (tốt nghiệp Đại Học Công Nghệ Thông Tin - ĐHQGTPHCM). Kinh nghiệm: 5 năm lập trình với iOS, tham gia rất nhiều dự án ở môi trường doanh nghiệp. Hiện đang làm giảng viên tại Khoa Công Nghệ Thông Tin <br>- Đại học Hutech Thành phố Hồ Chí Minh.
-Giảng viên: Thạc Sỹ Võ Văn Mỹ (tốt nghiệp Đại Học Bách Khoa TpHCM). Kinh nghiệm: 4 năm lập trình với iOS. Hiện đang làm giảng viên tại Khoa Công Nghệ Thông Tin - Đại học Hutech Thành phố Hồ Chí Minh. </p>
+							<a href="#" class="font-weight-bold nav-link pt-0 pl-0 text-info">{{teacherName}}</a>
+							<p style="font-size: 14px; line-height: 2.3">{{teacherDescription}}</p>
 						</div>
 					</div>
 				</div>
@@ -137,8 +130,10 @@ Giảng viên: Thạc Sỹ Võ Văn Mỹ (tốt nghiệp Đại Học Bách Khoa
         <p class="teacher">Đánh giá: {{rating}} <i class="fa fa-star text-warning"></i> ({{numRating}} người đánh giá)</p>
 		{{#if ../auth}}
         <a href="javascript:;" class="fa fa-heart-o fa-2x btn btn-outline-danger"></a>
+		<form action="/cart/addCourse" method="POST">
+		<input type="hidden" value="{{courseID}}" name="id">
 		<button class="btn btn-danger font-weight-bold w-100 pt-3 pb-3 mt-5" type="submit">Đăng ký khóa học</button>
-		
+		</form>
 		<form action="/cart/add" method="POST">
 			<input type="hidden" value="{{courseID}}" name="id">
 			<button class="btn btn-success font-weight-bold w-100 pt-2 pb-2 mt-4" type="submit">

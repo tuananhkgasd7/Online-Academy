@@ -1,0 +1,58 @@
+{{#section 'js'}}
+<script>
+    $("form").submit(function(event){
+        event.preventDefault();
+        const Newpass = $('#newpwd').val();
+        const conNewpass = $('#cnewpwd').val();
+
+        if (Newpass.length === 0 || conNewpass.length === 0) {
+            alert('Chưa điền đầy đủ thông tin');
+            return;
+        }
+        
+        if (Newpass.length < 3 || Newpass.length > 20) {
+            alert('Mật khẩu mới phải có độ dài tối thiểu 3 ký tự và tối đa 20 ký tự');
+            return;
+        }
+
+        if (conNewpass !== Newpass) {
+            alert('Xác nhận mật khẩu mới không chính xác');
+            return;
+        }
+        else {
+            alert('Đổi mật khẩu thành công');
+            $("form").off('submit').submit();
+        }
+    });
+</script>
+{{/section}}
+<div class="row mt-3">
+    <div class="col-3">
+    <div class="card-header bg-info text-white">
+        <h5 class="font-weight-bold">PROFILE</h5>
+        <p>{{authUser.fullName}}</p>
+    </div>
+    <div class="card-body">
+        <a href="/user/profile/" role="button" class="nav-link pt-2 pb-2 text-white bg-info">Thông tin cá nhân</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/confirmPass" role="button" class="nav-link pt-2 pb-2 text-dark">Thay đổi mật khẩu</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/favoriteCourses" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách khóa học yêu thích</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/boughtCourses" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách khóa học đã đăng ký</a>
+    </div>
+</div>
+    <div class="col-9 pt-5">
+        <form action="" method="POST">
+            <label for="newpwd">Nhập mật khẩu mới</label>
+            <div class="form-group">
+            <input type="password" id="newpwd" name="newpwd" class="form-control w-50">
+            </div>
+            <label for="cnewpwd">Xác nhận mật khẩu mới</label>
+            <div class="form-group">
+            <input type="password" id="cnewpwd" name="cnewpwd" class="form-control w-50">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </form>
+    </div>
+</div>

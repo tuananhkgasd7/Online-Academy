@@ -13,6 +13,9 @@ module.exports = function (app) {
           },
           format_time(val) {
             return dayjs(val).format('DD/MM/YYYY HH:mm:ss')
+          },
+          format_day(val) {
+            return dayjs(val).format('DD/MM/YYYY')
           }
         }
       }));

@@ -1,0 +1,34 @@
+<div class="row mt-3">
+    <div class="col-3">
+    <div class="card-header bg-info text-white">
+        <h5 class="font-weight-bold">PROFILE</h5>
+        <p>{{authUser.fullName}}</p>
+    </div>
+    <div class="card-body">
+        <a href="/user/profile/" role="button" class="nav-link pt-2 pb-2 text-white bg-info">Thông tin cá nhân</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/confirmPass" role="button" class="nav-link pt-2 pb-2 text-dark">Thay đổi mật khẩu</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/favoriteCourses" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách khóa học yêu thích</a>
+        <div class="dropdown-divider"></div>
+        <a href="/user/profile/boughtCourses" role="button" class="nav-link pt-2 pb-2 text-dark">Danh sách khóa học đã đăng ký</a>
+    </div>
+</div>
+    <div class="col-9 pt-5">
+        {{#if err_message}}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		{{err_message}}
+	</div>
+{{/if}}
+        <form action="" method="POST">
+            <label for="oldpwd">Nhập mật khẩu cũ</label>
+            <div class="form-group">
+            <input type="password" id="oldpwd" name="oldpwd" class="form-control w-50">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Xác nhận</button>
+        </form>
+    </div>
+</div>
